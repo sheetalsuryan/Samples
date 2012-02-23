@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="sirius_black">#000000</color>
+	<color name="white">#FFFFFF</color>
+	<color name="login_screen_login_button_text">#EAB53E</color>
+	<color name="login_screen_login_button_text_disabled">#A7810A</color>
+	<color name="login_screen_login_button">#5D3590</color>
+	<color name="tab_selected">#5936A7</color>
+	<color name="tab_unselected">#F4EEDA</color>
+	<color name="list_background_selected">#EAB53E</color>
+	<color name="list_background_unselected">#EEEEEE</color>
+	<color name="app_background_lite">#F4EEDA</color>
+	<color name="app_background_dark_yellow">#EAB53E</color>
+	
+	<color name="divider_yellow">#FCC200</color>
+	<color name="yellow_normal">#EAB53E</color>
+	<color name="yellow_lite">#F4EEDA</color>
+	
+	<color name="inactive_text">#999999</color>
+	
+	<color name="ombook_viewer_header_gradient_top">#999999</color>
+	<color name="ombook_viewer_header_gradient_bottom">#ffffff</color>
+	<color name="ombook_viewer_footer_gradient_top">#53349c</color>
+	<color name="ombook_viewer_footer_gradient_bottom">#000000</color>
+	<color name="ombook_viewer_landing_background">#ffffff</color>
+	
+	<color name="chapter_list_header_gradient_top">#ffffff</color>
+	<color name="chapter_list_header_gradient_bottom">#777777</color>
+	<color name="page_list_header_gradient_top">#ffffff</color>
+	<color name="page_list_header_gradient_bottom">#777777</color>
+	<color name="list_background_grey_divider">#999999</color>
+	
+	<color name="packages_title_element_gradient_top">#999999</color>
+	<color name="packages_title_element_gradient_bottom">#ffffff</color>
+	<color name="grey">#cccccc</color>
+	<color name="black">#ffffff</color>
+	<color name="theme_purple">#53349c</color>
+	<color name="setting_bar_text">#000000</color>
+	
+	<color name="ombook_viewer_header_strip_tab_bar_background">#8A58FC</color>
+	<color name="settings_logout_button_text">#5D3590</color>
+	<color name="course_list_item_background">#F4EEDA</color>
+	<color name="course_list_item_background_selected">#EAB53E</color>
+	<color name="pack_header_text_color">#EDAE15</color>
+	<color name="white_gray">#dddddd</color>
+   <color name="settings_logout_button_bg">#EAB53E</color>
+	<color name="about_text">#000000</color>
+       
+	    
+</resources>

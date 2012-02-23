@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, SMAActivity!</string>
+	<string name="app_name">SMA</string>
+	<string name="username_hint">Email or User ID</string>
+	<string name="password_hint">Password</string>
+	<string name="login_forgot_password_button_text">Forgot Password</string>
+	<string name="login_login_button_text">Login</string>
+	<string name="server_address">http://74.3.161.204/device/login</string>
+	<string name="login_username_var">username</string>
+	<string name="login_password_var">password</string>
+	<string name="forgot_password_question">Forgot Password?</string>
+	<string name="temporary_pass_info">Enter your username and we\'ll email you a
+		temporary password.</string>
+	<string name="change_info">Log in, and then change it to anything you\'d like.</string>
+	<string name="cancel">Cancel</string>
+	<string name="forgot_password_button_text">Email me my Password</string>
+	<string name="forgot_password_text_hint">Username</string>
+	<string name="cannot_fetch_course_text">Cannot fetch courses</string>
+	<string name="cannot_fetch_recordings_text">Cannot fetch recordings</string>
+	<string name="no_courses_available_text">No courses available</string>
+	<string name="no_recordings_available_text">No recordings available</string>
+	<string name="cannot_fetch_study_plan_text">Cannot fetch study plan</string>
+	<string name="cannot_fetch_teacher_notes_text">Cannot fetch teacher notes</string>
+	    	<string name="no_study_plan_text">No study plan</string>
+	<string name="teacher_note_title">Teacher Notes</string>
+	<string name="no_teacher_notes">No Teacher notes available</string>
+	<string name="study_plan_heading">Study Plan</string>
+    <string name="recordings_heading">Recordings</string>
+    <string name="recording_detail_heading">Recording</string>
+    
+    <string name="my_all_recordingsr_url">http://74.3.161.204/device/all_my_recordings</string>    
+    <string name="teacher_notes_url">http://74.3.161.204/device/teacher_notes</string>
+    <string name="forgot_password_url">http://74.3.161.204/device/email_new_pwd</string>
+	<string name="activate_course_url">http://74.3.161.204/device/addcoursetopack</string>
+	<string name="package_list_url">http://74.3.161.204/device/packdetails</string>
+    <string name="course_list_url">http://74.3.161.204/device/mycourses</string>
+    <string name="course_detail_url">http://74.3.161.204/device/mycourses</string>
+    <string name="recording_list_url">http://74.3.161.204/device/myrecordings</string>
+    <string name="take_quiz_url">http://74.3.161.204/device/take_quiz</string>
+    <string name="start_quiz_url">http://74.3.161.204/device/start_quiz</string>
+    <string name="cancel_feedback_url">http://74.3.161.204/device/cancelrecordingfeedback</string>
+    <string name="send_for_feedback_url">http://74.3.161.204/device/submitrecording</string>
+    <string name="study_plan_url">http://74.3.161.204/device/studyplan</string>
+	<string name="ombook_version_url">http://74.3.161.204/device/ombook_version</string>
+	<string name="ombook_url">http://74.3.161.204/device/ombook</string>
+	<string name="recording_submit_url">http://74.3.161.204/device/upload_practice_recording</string>
+	<string name="quiz_submit_url">http://74.3.161.204/device/submit_quiz</string>
+	<string name="base_url">http://74.3.161.204</string>
+	
+	<string name="cache_dir">data/smaCache</string>
+    <string name="feedback_unavailable">Submitted for feedback and review pending.</string>
+    <string name="settings_logout_button_text">Logout</string>
+    <string name="teacher_notes_top_header">Teacher Notes</string>
+    <string name="load_more_button_text">Load More</string>
+    <string name="load_more_button_loading_text">Fetching Recordings...</string>
+
+    <string name="assignment_list_url">http://74.3.161.204/device/student_assignments</string>
+    
+    <string name="version">Buid - v1.0.0</string>
+    <string name="about_us">Shankar Mahadevan Academy Tm  was founded under the guidance and leadership of the award-winning music composer and singer,bringing high quality Indian music instruction online.</string>
+</resources>
