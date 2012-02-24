@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.util.Log;
@@ -106,14 +107,15 @@ public class SampleFragment extends FragmentActivity {
 	private static class PageListener extends SimpleOnPageChangeListener {
 		public void onPageSelected(int position) {
 
+			
 			Log.d(TAG, "FROM position " + _position + " to " + position);
-
+			_position = position;
 		}
 	}
 
 
 
-	private class ContentPagerAdapter extends FragmentPagerAdapter {
+	private class ContentPagerAdapter extends FragmentStatePagerAdapter {
 
 		public ContentPagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -125,9 +127,8 @@ public class SampleFragment extends FragmentActivity {
 			Log.d("DESTROY", "destroying view at position " + position);
 			((ViewPager) collection).removeView((View) view);
 		}
-
-		//@Override
-		public Object instantiateItem(ViewGroup container, int position) {
+		@Override
+		public Object instantiateItem(View container, int position) {
 			
 			
 			Log.i(TAG, "instantiate  called");
@@ -145,7 +146,7 @@ public class SampleFragment extends FragmentActivity {
 
 		@Override
 		public int getCount() {
-			return myFragments.size();
+			return ids.length;
 		}
 		@Override
 		public Fragment getItem(int position) {
@@ -201,15 +202,16 @@ public class SampleFragment extends FragmentActivity {
 			this.id = id;
 			Log.i(TAG, " MyFragment(id)  called");
 		}
+		
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			Log.d(TAG, "onCreateView is called "+resources+ " id "+id);
+			Log.d(TAG, "onCreateView hii is called "+resources+ " id "+id);
 			View view = inflater.inflate(R.layout.test, container, false);
 			ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
-			imageView.setImageBitmap(BitmapFactory.decodeResource(resources, id));
+			//imageView.setImageBitmap(BitmapFactory.decodeResource(resources, id));
 
-			//imageView.setImageResource(R.drawable.ic_media_play);
+			imageView.setImageResource(R.drawable.cupcake);
 
 
 			return imageView;
