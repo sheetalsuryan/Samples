@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Hello World, SMAActivity!</string>
-	<string name="app_name">SMA</string>
+	<string name="app_name">test</string>
 	
 </resources>
