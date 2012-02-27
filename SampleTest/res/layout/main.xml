@@ -3,18 +3,15 @@
     android:id="@+id/ombook_viewer"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@color/ombook_viewer_landing_background"
+    android:background="@color/white"
     android:orientation="vertical" >
-
 
     <android.support.v4.view.ViewPager
         android:id="@+id/ombook_viewer_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
         android:layout_above="@+id/ombook_viewer_footer"
-        android:layout_below="@+id/ombook_viewer_header" >
+        android:layout_margin="10dp" >
     </android.support.v4.view.ViewPager>
-
-   
 
 </RelativeLayout>
