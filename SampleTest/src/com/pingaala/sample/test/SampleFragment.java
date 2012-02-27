@@ -77,7 +77,7 @@ public class SampleFragment extends FragmentActivity {
 		ctx = null;
 
 
-	//	onDestroy();
+		//	onDestroy();
 		super.onBackPressed();
 	}
 
@@ -107,7 +107,7 @@ public class SampleFragment extends FragmentActivity {
 	private static class PageListener extends SimpleOnPageChangeListener {
 		public void onPageSelected(int position) {
 
-			
+
 			Log.d(TAG, "FROM position " + _position + " to " + position);
 			_position = position;
 		}
@@ -115,10 +115,11 @@ public class SampleFragment extends FragmentActivity {
 
 
 
-	private class ContentPagerAdapter extends FragmentStatePagerAdapter {
-
+	private class ContentPagerAdapter extends FragmentPagerAdapter {
+		FragmentManager fm;
 		public ContentPagerAdapter(FragmentManager fm) {
 			super(fm);
+			this.fm = fm;
 
 		}
 
@@ -127,10 +128,11 @@ public class SampleFragment extends FragmentActivity {
 			Log.d("DESTROY", "destroying view at position " + position);
 			((ViewPager) collection).removeView((View) view);
 		}
+	
 		@Override
 		public Object instantiateItem(View container, int position) {
-			
-			
+
+
 			Log.i(TAG, "instantiate  called");
 			MyFragment myFragment = new MyFragment(ids[position],getResources(),position );
 			myFragments.add(position, myFragment);
@@ -138,7 +140,7 @@ public class SampleFragment extends FragmentActivity {
 			//return super.instantiateItem(container, position);
 			return myFragment;
 		}
-
+		 
 
 		@Override
 		public void finishUpdate(View arg0) {
@@ -153,7 +155,9 @@ public class SampleFragment extends FragmentActivity {
 			Log.i(TAG, "getItem  called");
 			MyFragment f = null;
 			try{
-				f = myFragments.get(position);
+				f = new MyFragment(ids[position],getResources(),position );
+				myFragments.add(position, f);
+
 			}
 			catch (Exception e) {
 				Log.i(TAG," ",e);
@@ -202,19 +206,34 @@ public class SampleFragment extends FragmentActivity {
 			this.id = id;
 			Log.i(TAG, " MyFragment(id)  called");
 		}
-		
+
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			Log.d(TAG, "onCreateView hii is called "+resources+ " id "+id);
 			View view = inflater.inflate(R.layout.test, container, false);
 			ImageView imageView = (ImageView) view.findViewById(R.id.item_image);
-			//imageView.setImageBitmap(BitmapFactory.decodeResource(resources, id));
+			imageView.setImageBitmap(BitmapFactory.decodeResource(resources, id));
 
+			TextView tv = (TextView)view.findViewById(R.id.item);
+			tv.setText("testing Textview : "+id);
 			imageView.setImageResource(R.drawable.cupcake);
 
 
-			return imageView;
+			return view;
+		}
+
+		@Override
+		public void onActivityCreated(Bundle savedInstanceState) {
+			super.onActivityCreated(savedInstanceState);
+
+			Log.d(TAG, "onActivityCreated hii is called "+resources+ " id "+id);
+
+		}
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			Log.d(TAG, "onCreate hii is called "+resources+ " id "+id);
+			super.onCreate(savedInstanceState);
 		}
 	}
 
