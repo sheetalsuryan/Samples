@@ -2,5 +2,35 @@
 <resources>
 	<string name="hello">Hello World, SMAActivity!</string>
 	<string name="app_name">test</string>
+	<string name="username_hint">Email or User ID</string>
+	<string name="password_hint">Password</string>
+	<string name="login_forgot_password_button_text">Forgot Password</string>
+	<string name="login_login_button_text">Login</string>
 	
+	<string name="login_username_var">username</string>
+	<string name="login_password_var">password</string>
+	<string name="forgot_password_question">Forgot Password?</string>
+	<string name="temporary_pass_info">Enter your username and we\'ll email you a
+		temporary password.</string>
+	<string name="change_info">Log in, and then change it to anything you\'d like.</string>
+	<string name="cancel">Cancel</string>
+	<string name="forgot_password_button_text">Email me my Password</string>
+	<string name="forgot_password_text_hint">Username</string>
+	<string name="cannot_fetch_course_text">Cannot fetch courses</string>
+	<string name="cannot_fetch_recordings_text">Cannot fetch recordings</string>
+	<string name="no_courses_available_text">No courses available</string>
+	<string name="no_recordings_available_text">No recordings available</string>
+
+    <string name="recording_detail_heading">Recording</string>
+    
+    
+	
+	<string name="cache_dir">data/smaCache</string>
+    <string name="settings_logout_button_text">Logout</string>
+    <string name="load_more_button_text">Load More</string>
+    <string name="load_more_button_loading_text">Fetching Recordings...</string>
+
+    
+    <string name="version">Buid - v1.0.0</string>
+    <string name="playing_recording">Playing Recording...</string>
 </resources>
