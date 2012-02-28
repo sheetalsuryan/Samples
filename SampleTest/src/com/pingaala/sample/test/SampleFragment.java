@@ -14,7 +14,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.util.Log;
@@ -124,9 +123,11 @@ public class SampleFragment extends FragmentActivity {
 		}
 
 		@Override
-		public void destroyItem(View collection, int position, Object view) {
+		public void destroyItem(View collection, int position, Object o) {
 			Log.d("DESTROY", "destroying view at position " + position);
-			((ViewPager) collection).removeView((View) view);
+			View view = (View)o; 
+			((ViewPager) collection).removeView(view);
+			view = null;
 		}
 	
 		@Override
