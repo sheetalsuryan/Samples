@@ -12,8 +12,7 @@ import android.os.Debug;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.util.Log;
@@ -60,7 +59,7 @@ public class SampleFragment extends FragmentActivity {
 		MyFragment myFragment = new MyFragment(ids[0],getResources(),0 );
 		myFragments.add(0, myFragment);
 		contentPager = (ViewPager)findViewById(R.id.ombook_viewer_pager);
-		contentPagerAdapter = new ContentPagerAdapter(getSupportFragmentManager());
+		contentPagerAdapter = new ContentPagerAdapter();
 		//	contentPagerAdapter.setRecentListener(this);
 		contentPager.setAdapter(contentPagerAdapter);
 
@@ -114,81 +113,133 @@ public class SampleFragment extends FragmentActivity {
 
 
 
-	private class ContentPagerAdapter extends FragmentPagerAdapter {
-		FragmentManager fm;
-		public ContentPagerAdapter(FragmentManager fm) {
-			super(fm);
-			this.fm = fm;
-
-		}
+	private class ContentPagerAdapter extends PagerAdapter {
+//		FragmentManager fm;
+//		public ContentPagerAdapter(FragmentManager fm) {
+//			super(fm);
+//			this.fm = fm;
+//
+//		}
 
 		@Override
 		public void destroyItem(View collection, int position, Object o) {
-			Log.d("DESTROY", "destroying view at position " + position);
-			View view = (View)o; 
+			View view = (View)o;
 			((ViewPager) collection).removeView(view);
 			view = null;
 		}
-	
-		@Override
-		public Object instantiateItem(View container, int position) {
-
-
-			Log.i(TAG, "instantiate  called");
-			MyFragment myFragment = new MyFragment(ids[position],getResources(),position );
-			myFragments.add(position, myFragment);
-
-			//return super.instantiateItem(container, position);
-			return myFragment;
-		}
-		 
-
+		
 		@Override
 		public void finishUpdate(View arg0) {
+			// TODO Auto-generated method stub
+			
 		}
-
 		@Override
 		public int getCount() {
 			return ids.length;
 		}
+		
 		@Override
-		public Fragment getItem(int position) {
-			Log.i(TAG, "getItem  called");
-			MyFragment f = null;
-			try{
-				f = new MyFragment(ids[position],getResources(),position );
-				myFragments.add(position, f);
+		public Object instantiateItem(View context, int position) {
+			ImageView imageView = new ImageView(getApplicationContext());
+			imageView.findViewById(R.id.item_image);
+//			imageView.setImageBitmap(BitmapFactory.decodeResource(resources, id));
 
-			}
-			catch (Exception e) {
-				Log.i(TAG," ",e);
-			}
-			Log.i(TAG, " myFragment : "+ f + " size : "+myFragments.size());
-			return f;
+//			TextView tv = (TextView)view.findViewById(R.id.item);
+//			tv.setText("testing Textview : "+id);
+			imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), ids[position]));
+
+			((ViewPager) context).addView(imageView);
+			
+			return imageView;
 		}
-
+		
 		@Override
 		public boolean isViewFromObject(View view, Object object) {
-			return view == ((View) object);
+			return view==((ImageView)object);
 		}
 
 		@Override
 		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+			// TODO Auto-generated method stub
 		}
-
 		@Override
 		public Parcelable saveState() {
+			// TODO Auto-generated method stub
 			return null;
 		}
-
 		@Override
 		public void startUpdate(View arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 
-		@Override
-		public int getItemPosition(Object object) {
-			return POSITION_NONE;
-		}
+//		@Override
+//		public void destroyItem(View collection, int position, Object o) {
+//			Log.d("DESTROY", "destroying view at position " + position);
+//			View view = (View)o; 
+//			((ViewPager) collection).removeView(view);
+//			view = null;
+//		}
+//	
+//		@Override
+//		public Object instantiateItem(View container, int position) {
+//
+//
+//			Log.i(TAG, "instantiate  called");
+//			MyFragment myFragment = new MyFragment(ids[position],getResources(),position );
+//			myFragments.add(position, myFragment);
+//
+//			//return super.instantiateItem(container, position);
+//			return myFragment;
+//		}
+//		 
+//
+//		@Override
+//		public void finishUpdate(View arg0) {
+//		}
+//
+//		@Override
+//		public int getCount() {
+//			return ids.length;
+//		}
+//		@Override
+//		public Fragment getItem(int position) {
+//			Log.i(TAG, "getItem  called");
+//			MyFragment f = null;
+//			try{
+//				f = new MyFragment(ids[position],getResources(),position );
+//				myFragments.add(position, f);
+//
+//			}
+//			catch (Exception e) {
+//				Log.i(TAG," ",e);
+//			}
+//			Log.i(TAG, " myFragment : "+ f + " size : "+myFragments.size());
+//			return f;
+//		}
+//
+//		@Override
+//		public boolean isViewFromObject(View view, Object object) {
+//			return view == ((View) object);
+//		}
+//
+//		@Override
+//		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+//		}
+//
+//		@Override
+//		public Parcelable saveState() {
+//			return null;
+//		}
+//
+//		@Override
+//		public void startUpdate(View arg0) {
+//		}
+//
+//		@Override
+//		public int getItemPosition(Object object) {
+//			return POSITION_NONE;
+//		}
 
 	}
 
