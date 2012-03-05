@@ -1,23 +1,25 @@
 package com.pingaala.sample.test;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import com.pingaala.sample.test.utils.ImageManager;
 import com.pingaala.sample.test.utils.Utils;
 /**
@@ -41,7 +43,16 @@ public class ContentActivity extends Activity{
 	private static int _position = 0 ;
 	public static int hasRead = 1;
 	SharedPreferences preferences;
-
+	private static final int[] ids = {  R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb,R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.cupcake, R.drawable.donut, R.drawable.eclair, R.drawable.froyo,
+		R.drawable.gingerbread, R.drawable.honeycomb, R.drawable.icecream };
 	List<String> urls ;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -143,77 +154,69 @@ public class ContentActivity extends Activity{
 	}
 
 
-	public	class ContentPagerAdapter extends PagerAdapter {
-
-		String html="";
-		
+	private class ContentPagerAdapter extends PagerAdapter {
 		@Override
 		public void destroyItem(View collection, int position, Object o) {
-			Log.d("DESTROY", "destroying view at position " + position);
-			View view = (View)o; 
+			LinearLayout view = (LinearLayout)o;
 			((ViewPager) collection).removeView(view);
 			view = null;
 		}
-		
+
 		@Override
 		public void finishUpdate(View arg0) {
+			// TODO Auto-generated method stub
+
 		}
 		@Override
 		public int getCount() {
-			return urls.size();
+			return ids.length;
 		}
+
 		@Override
-		public Object instantiateItem(View collection, int position) {
-
-			RelativeLayout relativeLayout = new RelativeLayout(context);
-
-
-			imageView = new ImageView(context);
+		public Object instantiateItem(View context, int position) {
+			LinearLayout ll = new LinearLayout(getApplicationContext());
+			ImageView imageView = new ImageView(getApplicationContext());
+			imageView.findViewById(R.id.item_image);
+		//	imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), ids[position]));
 			
-			TextView tv = new TextView(context);
-			;			
-			tv.setText(" position"+position);
-			tv.setTextSize(20f);
-
 			
-			try 	{
-				UrlImageViewHelper.setUrlDrawable(imageView, urls.get(position), R.drawable.loading);
+			Bitmap bitmap = null;
+			try {
+				bitmap = BitmapFactory.decodeStream(new URL(urls.get(position).toString()).openConnection().getInputStream());
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			catch (Exception e) {
-				Log.d(TAG, "image not accossble" ,e);
-			}
-			imageView.setScaleType(ScaleType.FIT_CENTER);
+			
+			imageView.setImageBitmap(bitmap);
+			ll.addView(imageView);
+			((ViewPager) context).addView(ll);
 
-			relativeLayout.addView(imageView, 0);
-			relativeLayout.addView(tv, 1);
-
-
-
-			((ViewPager) collection).addView(relativeLayout);
-
-			return relativeLayout;
-
+			return ll;
 		}
 
 		@Override
 		public boolean isViewFromObject(View view, Object object) {
-			return view == ((RelativeLayout) object);
+			return view==((LinearLayout)object);
 		}
+
 		@Override
 		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+			// TODO Auto-generated method stub
 		}
 		@Override
 		public Parcelable saveState() {
+			// TODO Auto-generated method stub
 			return null;
 		}
 		@Override
 		public void startUpdate(View arg0) {
-		}
-		@Override
-		public int getItemPosition(Object object) {
-			return POSITION_NONE;
-		}
+			// TODO Auto-generated method stub
 
+		}
 	}
 
 
